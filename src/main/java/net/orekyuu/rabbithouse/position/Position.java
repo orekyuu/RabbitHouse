@@ -11,6 +11,7 @@ public class Position implements Cloneable {
 
     /**
      * 座標を指定してPositionを作成します。
+     *
      * @param x x座標
      * @param y y座標
      * @param z z座標
@@ -30,6 +31,7 @@ public class Position implements Cloneable {
 
     /**
      * x座標を返します
+     *
      * @return x座標
      */
     public float getX() {
@@ -38,6 +40,7 @@ public class Position implements Cloneable {
 
     /**
      * y座標を返します
+     *
      * @return y座標
      */
     public float getY() {
@@ -46,6 +49,7 @@ public class Position implements Cloneable {
 
     /**
      * z座標を返します
+     *
      * @return z座標
      */
     public float getZ() {
@@ -54,6 +58,7 @@ public class Position implements Cloneable {
 
     /**
      * xの値を加算し、結果の新しいPositionを返します。
+     *
      * @param x x座標にプラスする値
      * @return 演算結果
      */
@@ -63,6 +68,7 @@ public class Position implements Cloneable {
 
     /**
      * yの値を加算し、結果の新しいPositionを返します。
+     *
      * @param y y座標にプラスする値
      * @return 演算結果
      */
@@ -72,6 +78,7 @@ public class Position implements Cloneable {
 
     /**
      * zの値を加算し、結果の新しいPositionを返します。
+     *
      * @param z z座標にプラスする値
      * @return 演算結果
      */
@@ -81,6 +88,7 @@ public class Position implements Cloneable {
 
     /**
      * 現在のPositionと引数のPositionで加算し、結果の新しいPositionを返します。
+     *
      * @param position 加算するposition
      * @return 演算結果
      */
@@ -90,6 +98,7 @@ public class Position implements Cloneable {
 
     /**
      * xの値を減算し、結果の新しいPositionを返します。
+     *
      * @param x x座標にマイナスする値
      * @return 演算結果
      */
@@ -99,6 +108,7 @@ public class Position implements Cloneable {
 
     /**
      * yの値を減算し、結果の新しいPositionを返します。
+     *
      * @param y y座標にマイナスする値
      * @return 演算結果
      */
@@ -108,6 +118,7 @@ public class Position implements Cloneable {
 
     /**
      * zの値を減算し、結果の新しいPositionを返します。
+     *
      * @param z z座標にマイナスする値
      * @return 演算結果
      */
@@ -117,11 +128,35 @@ public class Position implements Cloneable {
 
     /**
      * 現在のPositionと引数のPositionで減算し、結果の新しいPositionを返します。
+     *
      * @param position 減算するposition
      * @return 演算結果
      */
     public Position minus(Position position) {
         return new Position(this.x - position.getX(), this.y - position.getY(), this.getZ() - position.getZ());
+    }
+
+    /**
+     * 引数との距離の長さの自乗の値を返します。
+     *
+     * @param position 距離を求めたいPosition
+     * @return 二点間の距離の自乗
+     */
+    public float getMultiplyDistance(Position position) {
+        float vx = this.x - position.getX();
+        float vy = this.y - position.getY();
+        float vz = this.z - position.getZ();
+        return vx * vx + vy * vy + vz * vz;
+    }
+
+    /**
+     * 二点間の距離を求めます。
+     *
+     * @param position 距離を求めたいPosition
+     * @return 二点間の距離
+     */
+    public float getDistance(Position position) {
+        return (float) Math.sqrt(getMultiplyDistance(position));
     }
 
     @Override
