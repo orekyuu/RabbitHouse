@@ -20,9 +20,10 @@ apply plugin: 'forge'
 version = "1.0"
 group= "net.orekyuu.rabbithouse"
 archivesBaseName = "rabbithouse"
+forgeVersion = "1.7.2-10.12.2.1121"
 
 minecraft {
-    version = "1.7.2-10.12.2.1121"
+    version = forgeVersion
     assetDir = "eclipse/assets"
 }
 
@@ -63,6 +64,15 @@ task createBlock << {
     blocksFile.parentFile.mkdirs()
     if(blocksFile.createNewFile())
         println 'created Blocks.json.'
+}
+
+task readCvs << {
+    forgeDir = project.getGradle().getGradleUserHomeDir().getAbsolutePath().replace('\\', '/') +
+            '/caches/minecraft/net/minecraftforge/forge/'
+    File fields = new File(forgeDir + forgeVersion + '/unpacked/conf/fields.csv')
+    fields.eachLine{
+        println it
+    }
 }
 
 task initRabbitHouse << {
