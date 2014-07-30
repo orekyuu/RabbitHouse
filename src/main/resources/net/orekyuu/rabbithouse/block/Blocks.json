@@ -3,7 +3,6 @@
         {
             "name" : "Block Name",
             "resource" : "Icon Name",
-            "item" : "ItemBlock class name",
             "harvestLevel" : [
                 { "key" : "shovel", "value" : 0},
                 { "key" : "pickaxe", "value" : 0},

@@ -9,7 +9,7 @@ class BlockData {
     private HarvestLevel[] harvestLevel;
     private float resistance;
     private float lightLevel;
-    private float lightOpacity;
+    private int lightOpacity;
     private float hardness;
 
     public String getName() {
@@ -36,7 +36,7 @@ class BlockData {
         return lightLevel;
     }
 
-    public float getLightOpacity() {
+    public int getLightOpacity() {
         return lightOpacity;
     }
 
