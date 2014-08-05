@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -98,7 +99,21 @@ public class BlockLoader {
     }
 
     private Block getBlock(BlockData blockData) {
-        Block block = new SimpleBlock(Material.sand);
+        Block block = null;
+        if(blockData.getClassName() != null) {
+            try {
+                block = (Block) Class.forName(blockData.getClassName()).getConstructor(Material.class).newInstance(Material.rock);
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+                System.exit(-1);//正常に作成できなければ失敗
+            } catch (NoSuchMethodException e) {
+                throw new BlockDataFormatException("Materialを引数に取るコンストラクタがありません。");
+            } catch (ClassNotFoundException e) {
+                throw new BlockDataFormatException(blockData.getClassName() + "クラスが見つかりません");
+            }
+        } else {
+            block = new SimpleBlock(Material.rock);
+        }
         if (blockData.getName() == null)
             throw new BlockDataFormatException(blockData.getName() + "のname要素を指定してください。");
         if (blockData.getResource() == null)
@@ -113,7 +128,6 @@ public class BlockLoader {
         block.setHardness(blockData.getHardness());
         block.setLightLevel(blockData.getLightLevel());
         block.setLightOpacity(blockData.getLightOpacity());
-
 
         Class<? extends ItemBlock> item;
         try {

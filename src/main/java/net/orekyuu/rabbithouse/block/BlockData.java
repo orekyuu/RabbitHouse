@@ -11,6 +11,7 @@ class BlockData {
     private float lightLevel;
     private int lightOpacity;
     private float hardness;
+    private String className;
 
     public String getName() {
         return name;
@@ -44,6 +45,10 @@ class BlockData {
         return hardness;
     }
 
+    public String getClassName() {
+        return className;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("BlockData{");
@@ -55,6 +60,7 @@ class BlockData {
         sb.append(", lightLevel=").append(lightLevel);
         sb.append(", lightOpacity=").append(lightOpacity);
         sb.append(", hardness=").append(hardness);
+        sb.append(", className=").append(className);
         sb.append('}');
         return sb.toString();
     }

@@ -40,6 +40,7 @@
  *      <tr><td>lightLevel</td><td>明るさ0.0～1.0</td><td>Y</td></tr>
  *      <tr><td>lightOpacity</td><td>光の透過度0.0～1.0</td><td>Y</td></tr>
  *      <tr><td>hardness</td><td>硬さ</td><td>Y</td></tr>
+ *      <tr><td>class</td><td>インスタンス化するクラス</td><td>Y</td></tr>
  *  </table>
  *  @see net.orekyuu.rabbithouse.block.BlockLoader
  */
