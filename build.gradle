@@ -82,7 +82,7 @@ processResources
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "file:${System.getProperty('user.home')}/.m2/repository")
+            repository(url: "file:${System.getProperty('user.home')}/public/.m2/repository")
         }
     }
 }
