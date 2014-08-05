@@ -86,3 +86,11 @@ task initRabbitHouse << {
     it.options.encoding = 'UTF-8'
     it.options.compilerArgs += ['-source', '1.7', '-target', '1.7']
 }
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file:${System.getProperty('user.home')}/public/.m2/repository")
+        }
+    }
+}
