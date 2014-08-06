@@ -121,9 +121,10 @@ public class BlockLoader {
 
         block.setBlockName(blockData.getName());
         block.setBlockTextureName(blockData.getResource());
-        for (HarvestLevel harvestLevel : blockData.getHarvestLevel()) {
-            block.setHarvestLevel(harvestLevel.getKey(), harvestLevel.getValue());
-        }
+        if(blockData.getHarvestLevel() != null)
+            for (HarvestLevel harvestLevel : blockData.getHarvestLevel()) {
+                block.setHarvestLevel(harvestLevel.getKey(), harvestLevel.getValue());
+            }
         block.setResistance(blockData.getResistance());
         block.setHardness(blockData.getHardness());
         block.setLightLevel(blockData.getLightLevel());
