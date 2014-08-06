@@ -1,5 +1,7 @@
 /**
- * Blockに関する機能を提供するAPI群です。<br>
+ * Blockに関する機能を提供するAPI群です。
+ *
+ * <br>
  * Blockのロードに関する詳細は{@link net.orekyuu.rabbithouse.block.BlockLoader}を参照して下さい。<br>
  * <br>
  * <br>

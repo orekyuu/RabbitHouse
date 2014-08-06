@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * BlockLoaderでロードしたデータを代入することを表すアノテーション<br>
+ * BlockLoaderでロードしたデータを代入することを表すアノテーション
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
