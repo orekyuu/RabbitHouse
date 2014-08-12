@@ -1,13 +1,14 @@
 /**
- * Blockに関する機能を提供するAPI群です。<br>
- * <br>
+ * Blockに関する機能を提供するクラス群です。
+ *
+ * <br><br>
  * Blockのロードに関する詳細は{@link net.orekyuu.rabbithouse.block.BlockLoader}を参照して下さい。<br>
  * <br>
  * <br>
  * <b>Blockのロード手順</b><br>
  * "gradlew initRabbitHouse"を実行した時に生成されたBlocks.jsonを編集します。<br>
  *  例を下に示します。<br>
- *  [<br>
+ *  {<br>
  *  &emsp;"blocks" : [<br>
  *  &emsp;&emsp;{<br>
  *  &emsp;&emsp;&emsp;"name" : "Block Name",<br>
@@ -24,7 +25,7 @@
  *  &emsp;&emsp;&emsp;"hardness" : 1.5<br>
  *  &emsp;&emsp;}<br>
  *  &emsp;]<br>
- *  ]<br>
+ *  }<br>
  *  <br>
  *  <b>Blocks.jsonの要素</b><br>
  *  配列の中にBlockを表す要素を入れていきます。<br>
