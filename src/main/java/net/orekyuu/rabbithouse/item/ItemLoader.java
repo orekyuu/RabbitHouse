@@ -63,6 +63,12 @@ public class ItemLoader {
             if (itemData.getName().equals(name)) {
                 Item item = getItem(itemData);
                 try {
+                    field.getType().cast(item.getClass());
+                } catch (ClassCastException e) {
+                    throw new ItemDataFormatException(item.getClass().getName() + "を" + field.getType().getName() + "にキャストできません。\nアイテム名: " + itemData.getName());
+                }
+
+                try {
                     field.set(container, item);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
