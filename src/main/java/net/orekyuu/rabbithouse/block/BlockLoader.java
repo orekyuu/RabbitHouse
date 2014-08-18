@@ -77,6 +77,10 @@ public class BlockLoader {
         for (BlockData blockData : dataList) {
             if (blockData.getName().equals(name)) {
                 Block block = getBlock(blockData);
+                if(!field.getType().isInstance(block)) {
+                    throw new BlockDataFormatException(block.getClass().getName() + "を" + field.getType().getName() + "にキャストできません。\nブロック名: " + blockData.getName());
+                }
+
                 try {
                     field.set(container, block);
                 } catch (IllegalAccessException e) {
