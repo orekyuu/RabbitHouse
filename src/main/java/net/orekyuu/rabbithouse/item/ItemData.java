@@ -7,7 +7,7 @@ public class ItemData {
     private String name;
     private String icon;
     private String className;
-    private int maxStackSize;
+    private int maxStackSize = 64;
     private int maxDamage;
     private boolean is3D;
 
