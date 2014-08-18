@@ -67,8 +67,11 @@ public class ItemLoader {
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
+                data = itemData;
             }
         }
+        if(data != null)
+            dataList.remove(data);
     }
 
     private Item getItem(ItemData itemData) {
@@ -85,11 +88,14 @@ public class ItemLoader {
         } else {
             item = new Item();
         }
-        if (itemData.getName() != null) {
+        if (itemData.getName() == null) {
             throw new ItemDataFormatException("name要素を指定してください");
         }
-        if (itemData.getIcon() != null) {
+        if (itemData.getIcon() == null) {
             throw new ItemDataFormatException(itemData.getName() + "のicon要素を指定してください");
+        }
+        if(itemData.getMaxStackSize() < 1) {
+            throw new ItemDataFormatException(itemData.getName() + "のmaxStackSizeには1以上の値を指定してください");
         }
 
         item.setUnlocalizedName(itemData.getName());
