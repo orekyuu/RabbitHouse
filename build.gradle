@@ -16,6 +16,7 @@ buildscript {
 }
 
 apply plugin: 'forge'
+apply plugin: 'maven'
 
 version = "1.7.10-1.0.2"
 group= "net.orekyuu"
@@ -27,7 +28,18 @@ minecraft {
     assetDir = "eclipse/assets"
 }
 
+dependencies {
+    compile 'com.google.code.gson:gson:2.2.4'
+}
+
+processResources
+{
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+}
+
 javadoc {
+    source += sourceSets.api.allSource
     options.encoding = "UTF-8"
     options.locale = 'ja_JP'
     project.configure(options) {
@@ -40,14 +52,35 @@ javadoc {
     }
 }
 
-dependencies {
-    compile 'com.google.code.gson:gson:2.2.4'
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
 }
 
-processResources
-{
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'dev'
+}
+
+jar {
+    from sourceSets.main.output
+}
+
+build.dependsOn sourceJar, javadocJar, deobfJar
+
+configurations {
+    deployerJars
+}
+
+artifacts {
+    archives sourceJar
+    archives javadocJar
+    archives deobfJar
 }
 
 task createBlock << {
@@ -79,6 +112,7 @@ task initRabbitHouse << {
 }
 
 uploadArchives {
+    dependsOn 'reobf'
     repositories {
         mavenDeployer {
             repository(url: "file:${System.getProperty('user.home')}/public/.m2/repository")
