@@ -1,5 +1,6 @@
 package net.orekyuu.rabbithouse.position;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 /**
@@ -18,6 +19,13 @@ public class Location {
             throw new NullPointerException("World is null");
         this.world = world;
         setPosition(position);
+    }
+
+    /**
+     * @param entity Entity
+     */
+    public Location(Entity entity) {
+        this(entity.worldObj, new Position(entity));
     }
 
     /**

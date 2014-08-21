@@ -1,5 +1,7 @@
 package net.orekyuu.rabbithouse.position;
 
+import net.minecraft.entity.Entity;
+
 /**
  * 座標を表すクラスです。<br>
  * Positionは不変なオブジェクトでスレッドセーフです。
@@ -20,6 +22,17 @@ public class Position implements Cloneable {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    /**
+     * EntityのPositionを作成します
+     *
+     * @param entity Entity
+     */
+    public Position(Entity entity) {
+        this.x = (float) entity.posX;
+        this.y = (float) entity.posY;
+        this.z = (float) entity.posZ;
     }
 
     /**
