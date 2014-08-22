@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * アイテムを表すデータ
  */
-public class ItemData {
+class ItemData {
     private String name;
     private String icon;
     @SerializedName("class")

@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Itemのデータのまとまり
  */
-public class JsonItems {
+class JsonItems {
     private ItemData[] items;
 
     @Override
