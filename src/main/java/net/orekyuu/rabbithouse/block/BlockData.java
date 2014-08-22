@@ -1,5 +1,7 @@
 package net.orekyuu.rabbithouse.block;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Arrays;
 
 class BlockData {
@@ -11,6 +13,7 @@ class BlockData {
     private float lightLevel;
     private int lightOpacity;
     private float hardness;
+    @SerializedName("class")
     private String className;
 
     public String getName() {
@@ -60,7 +63,7 @@ class BlockData {
         sb.append(", lightLevel=").append(lightLevel);
         sb.append(", lightOpacity=").append(lightOpacity);
         sb.append(", hardness=").append(hardness);
-        sb.append(", className=").append(className);
+        sb.append(", class=").append(className);
         sb.append('}');
         return sb.toString();
     }

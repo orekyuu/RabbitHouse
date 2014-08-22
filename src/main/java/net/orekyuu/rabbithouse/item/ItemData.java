@@ -1,11 +1,14 @@
 package net.orekyuu.rabbithouse.item;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * アイテムを表すデータ
  */
-public class ItemData {
+class ItemData {
     private String name;
     private String icon;
+    @SerializedName("class")
     private String className;
     private int maxStackSize = 64;
     private int maxDamage;
@@ -17,7 +20,7 @@ public class ItemData {
         sb.append("is3D=").append(is3D);
         sb.append(", name='").append(name).append('\'');
         sb.append(", icon='").append(icon).append('\'');
-        sb.append(", className='").append(className).append('\'');
+        sb.append(", class='").append(className).append('\'');
         sb.append(", maxStackSize=").append(maxStackSize);
         sb.append(", maxDamage=").append(maxDamage);
         sb.append('}');
