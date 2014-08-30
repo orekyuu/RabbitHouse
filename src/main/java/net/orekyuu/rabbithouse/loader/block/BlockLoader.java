@@ -1,4 +1,4 @@
-package net.orekyuu.rabbithouse.block;
+package net.orekyuu.rabbithouse.loader.block;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
@@ -6,7 +6,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
-import net.orekyuu.rabbithouse.Initializable;
+import net.orekyuu.rabbithouse.loader.Initializable;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,7 +30,7 @@ public class BlockLoader {
      *
      * @param container DIを行うインスタンス
      * @param modId     modId
-     * @see net.orekyuu.rabbithouse.block.BlockField
+     * @see net.orekyuu.rabbithouse.loader.block.BlockField
      */
     public BlockLoader(Object container, String modId) {
         this.container = container;

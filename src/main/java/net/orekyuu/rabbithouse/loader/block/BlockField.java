@@ -1,4 +1,4 @@
-package net.orekyuu.rabbithouse.block;
+package net.orekyuu.rabbithouse.loader.block;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

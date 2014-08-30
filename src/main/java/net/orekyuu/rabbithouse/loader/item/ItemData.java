@@ -1,4 +1,4 @@
-package net.orekyuu.rabbithouse.item;
+package net.orekyuu.rabbithouse.loader.item;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,9 +1,7 @@
-package net.orekyuu.rabbithouse.block;
+package net.orekyuu.rabbithouse.loader.block;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 class BlockData {

@@ -1,10 +1,10 @@
-package net.orekyuu.rabbithouse.item;
+package net.orekyuu.rabbithouse.loader.item;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
-import net.orekyuu.rabbithouse.Initializable;
+import net.orekyuu.rabbithouse.loader.Initializable;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

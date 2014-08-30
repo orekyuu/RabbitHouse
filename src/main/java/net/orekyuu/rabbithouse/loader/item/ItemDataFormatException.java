@@ -1,4 +1,4 @@
-package net.orekyuu.rabbithouse.item;
+package net.orekyuu.rabbithouse.loader.item;
 
 /**
  * Item.jsonのファイルフォーマットが条件を満たしていない時の例外

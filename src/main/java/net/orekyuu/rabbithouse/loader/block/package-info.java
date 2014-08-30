@@ -2,7 +2,7 @@
  * Blockに関する機能を提供するクラス群です。
  *
  * <br><br>
- * Blockのロードに関する詳細は{@link net.orekyuu.rabbithouse.block.BlockLoader}を参照して下さい。<br>
+ * Blockのロードに関する詳細は{@link net.orekyuu.rabbithouse.loader.block.BlockLoader}を参照して下さい。<br>
  * <br>
  * <br>
  * <b>Blockのロード手順</b><br>
@@ -29,6 +29,7 @@
  *  <br>
  *  <b>Blocks.jsonの要素</b><br>
  *  配列の中にBlockを表す要素を入れていきます。<br>
+ *  args指定時には、classにInitializableが実装されていることを確認して下さい。<br>
  *  <table border="3">
  *      <caption>要素一覧</caption>
  *      <tr><th>要素名</th><th>パラメータ</th><th>省略可否</th></tr>
@@ -43,7 +44,8 @@
  *      <tr><td>lightOpacity</td><td>光の透過度0.0～1.0</td><td>Y</td></tr>
  *      <tr><td>hardness</td><td>硬さ</td><td>Y</td></tr>
  *      <tr><td>class</td><td>インスタンス化するクラス</td><td>Y</td></tr>
+ *      <tr><td>args</td><td>initializeに渡す引数</td><td>Y</td></tr>
  *  </table>
- *  @see net.orekyuu.rabbithouse.block.BlockLoader
+ *  @see net.orekyuu.rabbithouse.loader.block.BlockLoader
  */
-package net.orekyuu.rabbithouse.block;
+package net.orekyuu.rabbithouse.loader.block;

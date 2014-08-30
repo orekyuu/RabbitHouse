@@ -1,4 +1,4 @@
-package net.orekyuu.rabbithouse;
+package net.orekyuu.rabbithouse.loader;
 
 import java.util.List;
 

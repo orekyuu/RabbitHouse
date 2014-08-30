@@ -1,4 +1,4 @@
-package net.orekyuu.rabbithouse.block;
+package net.orekyuu.rabbithouse.loader.block;
 
 import java.util.Arrays;
 
