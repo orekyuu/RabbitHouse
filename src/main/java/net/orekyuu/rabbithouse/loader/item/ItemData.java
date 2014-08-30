@@ -24,7 +24,7 @@ class ItemData {
         sb.append(", name='").append(name).append('\'');
         sb.append(", icon='").append(icon).append('\'');
         sb.append(", class='").append(className).append('\'');
-        sb.append(", args='").append(args.toString()).append('\'');
+        sb.append(", args='").append(args == null ? "[]" : args.toString()).append('\'');
         sb.append(", maxStackSize=").append(maxStackSize);
         sb.append(", maxDamage=").append(maxDamage);
         sb.append('}');

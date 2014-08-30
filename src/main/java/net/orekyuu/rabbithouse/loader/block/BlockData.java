@@ -63,13 +63,13 @@ class BlockData {
         sb.append("name='").append(name).append('\'');
         sb.append(", resource='").append(resource).append('\'');
         sb.append(", item='").append(item).append('\'');
-        sb.append(", harvestLevel=").append(harvestLevel.toString());
+        sb.append(", harvestLevel=").append(harvestLevel == null ? "[]" : harvestLevel.toString());
         sb.append(", resistance=").append(resistance);
         sb.append(", lightLevel=").append(lightLevel);
         sb.append(", lightOpacity=").append(lightOpacity);
         sb.append(", hardness=").append(hardness);
         sb.append(", class=").append(className);
-        sb.append(", args=").append(args.toString());
+        sb.append(", args=").append(args == null ? "[]" : args.toString());
         sb.append('}');
         return sb.toString();
     }

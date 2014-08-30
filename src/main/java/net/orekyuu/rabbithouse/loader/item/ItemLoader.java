@@ -111,7 +111,7 @@ public class ItemLoader {
             item.setFull3D();
         }
 
-        if (!itemData.getArgs().isEmpty()) {
+        if (itemData.getArgs() != null) {
             if (!(item instanceof Initializable))
                 throw new ItemDataFormatException(itemData.getClassName()
                         + "は引数を受け取るため、Initializableを実装する必要があります。");

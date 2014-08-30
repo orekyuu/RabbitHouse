@@ -146,7 +146,7 @@ public class BlockLoader {
             throw new BlockDataFormatException(blockData.getName() + "のitem要素の値が不正です。");
         }
 
-        if (!blockData.getArgs().isEmpty()) {
+        if (blockData.getArgs() != null) {
             if (!(block instanceof Initializable))
                 throw new BlockDataFormatException(blockData.getClassName()
                         + "は引数を受け取るため、Initializableを実装する必要があります。");
