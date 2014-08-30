@@ -11,11 +11,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最大値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最大値
      */
-    public static int max(final int ... args) {
-        int res = args[0];
+    public static int max(final int arg1, final int ... args) {
+        int res = arg1;
         for (int i : args) {
             if(i > res)
                 res = i;
@@ -25,11 +26,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最大値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最大値
      */
-    public static long max(final long ... args) {
-        long res = args[0];
+    public static long max(final long arg1, final long ... args) {
+        long res = arg1;
         for (long i : args) {
             if(i > res)
                 res = i;
@@ -39,11 +41,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最大値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最大値
      */
-    public static float max(final float ... args) {
-        float res = args[0];
+    public static float max(final float arg1, final float ... args) {
+        float res = arg1;
         for (float i : args) {
             if(i > res)
                 res = i;
@@ -53,11 +56,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最大値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最大値
      */
-    public static double max(final double ... args) {
-        double res = args[0];
+    public static double max(final double arg1, final double ... args) {
+        double res = arg1;
         for (double i : args) {
             if(i > res)
                 res = i;
@@ -67,11 +71,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最大値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最大値
      */
-    public static byte max(final byte ... args) {
-        byte res = args[0];
+    public static byte max(final byte arg1, final byte ... args) {
+        byte res = arg1;
         for (byte i : args) {
             if(i > res)
                 res = i;
@@ -81,11 +86,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最大値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最大値
      */
-    public static short max(final short ... args) {
-        short res = args[0];
+    public static short max(final short arg1, final short ... args) {
+        short res = arg1;
         for (short i : args) {
             if(i > res)
                 res = i;
@@ -95,11 +101,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最小値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最小値
      */
-    public static int min(final int ... args) {
-        int res = args[0];
+    public static int min(final int arg1, final int ... args) {
+        int res = arg1;
         for (int i : args) {
             if(i < res)
                 res = i;
@@ -109,11 +116,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最小値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最小値
      */
-    public static long min(final long ... args) {
-        long res = args[0];
+    public static long min(final long arg1, final long ... args) {
+        long res = arg1;
         for (long i : args) {
             if(i < res)
                 res = i;
@@ -123,11 +131,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最小値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最小値
      */
-    public static float min(final float ... args) {
-        float res = args[0];
+    public static float min(final float arg1, final float ... args) {
+        float res = arg1;
         for (float i : args) {
             if(i < res)
                 res = i;
@@ -137,11 +146,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最小値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最小値
      */
-    public static double min(final double ... args) {
-        double res = args[0];
+    public static double min(final double arg1, final double ... args) {
+        double res = arg1;
         for (double i : args) {
             if(i < res)
                 res = i;
@@ -151,11 +161,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最小値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最小値
      */
-    public static byte min(final byte ... args) {
-        byte res = args[0];
+    public static byte min(final byte arg1, final byte ... args) {
+        byte res = arg1;
         for (byte i : args) {
             if(i < res)
                 res = i;
@@ -165,11 +176,12 @@ public class MathUtil {
 
     /**
      * 与えられた引数の中から最小値を返します
+     * @param arg1 比較したい数値
      * @param args 比較したい数値
      * @return 最小値
      */
-    public static short min(final short ... args) {
-        short res = args[0];
+    public static short min(final short arg1, final short ... args) {
+        short res = arg1;
         for (short i : args) {
             if(i < res)
                 res = i;
