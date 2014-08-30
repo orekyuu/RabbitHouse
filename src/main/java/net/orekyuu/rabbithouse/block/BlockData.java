@@ -3,12 +3,15 @@ package net.orekyuu.rabbithouse.block;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 class BlockData {
     private String name;
     private String resource;
     private String item;
-    private HarvestLevel[] harvestLevel;
+    private List<HarvestLevel> harvestLevel;
+    private List<String> args;
     private float resistance;
     private float lightLevel;
     private int lightOpacity;
@@ -16,40 +19,44 @@ class BlockData {
     @SerializedName("class")
     private String className;
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public String getResource() {
+    String getResource() {
         return resource;
     }
 
-    public String getItem() {
+    String getItem() {
         return item;
     }
 
-    public HarvestLevel[] getHarvestLevel() {
+    List<HarvestLevel> getHarvestLevel() {
         return harvestLevel;
     }
 
-    public float getResistance() {
+    float getResistance() {
         return resistance;
     }
 
-    public float getLightLevel() {
+    float getLightLevel() {
         return lightLevel;
     }
 
-    public int getLightOpacity() {
+    int getLightOpacity() {
         return lightOpacity;
     }
 
-    public float getHardness() {
+    float getHardness() {
         return hardness;
     }
 
-    public String getClassName() {
+    String getClassName() {
         return className;
+    }
+
+    List<String> getArgs() {
+        return args;
     }
 
     @Override
@@ -58,12 +65,13 @@ class BlockData {
         sb.append("name='").append(name).append('\'');
         sb.append(", resource='").append(resource).append('\'');
         sb.append(", item='").append(item).append('\'');
-        sb.append(", harvestLevel=").append(Arrays.toString(harvestLevel));
+        sb.append(", harvestLevel=").append(harvestLevel.toString());
         sb.append(", resistance=").append(resistance);
         sb.append(", lightLevel=").append(lightLevel);
         sb.append(", lightOpacity=").append(lightOpacity);
         sb.append(", hardness=").append(hardness);
         sb.append(", class=").append(className);
+        sb.append(", args=").append(args.toString());
         sb.append('}');
         return sb.toString();
     }

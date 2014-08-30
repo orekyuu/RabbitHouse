@@ -6,6 +6,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
+import net.orekyuu.rabbithouse.Initializable;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -77,7 +78,7 @@ public class BlockLoader {
         for (BlockData blockData : dataList) {
             if (blockData.getName().equals(name)) {
                 Block block = getBlock(blockData);
-                if(!field.getType().isInstance(block)) {
+                if (!field.getType().isInstance(block)) {
                     throw new BlockDataFormatException(block.getClass().getName() + "を" + field.getType().getName() + "にキャストできません。\nブロック名: " + blockData.getName());
                 }
 
@@ -104,7 +105,7 @@ public class BlockLoader {
 
     private Block getBlock(BlockData blockData) {
         Block block = null;
-        if(blockData.getClassName() != null) {
+        if (blockData.getClassName() != null) {
             try {
                 block = (Block) Class.forName(blockData.getClassName()).getConstructor(Material.class).newInstance(Material.rock);
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
@@ -125,7 +126,7 @@ public class BlockLoader {
 
         block.setBlockName(blockData.getName());
         block.setBlockTextureName(blockData.getResource());
-        if(blockData.getHarvestLevel() != null)
+        if (blockData.getHarvestLevel() != null)
             for (HarvestLevel harvestLevel : blockData.getHarvestLevel()) {
                 block.setHarvestLevel(harvestLevel.getKey(), harvestLevel.getValue());
             }
@@ -143,6 +144,16 @@ public class BlockLoader {
         } catch (ClassNotFoundException e) {
             //ここに来たらおしまい。
             throw new BlockDataFormatException(blockData.getName() + "のitem要素の値が不正です。");
+        }
+
+        if (!blockData.getArgs().isEmpty()) {
+            if (!(block instanceof Initializable))
+                throw new BlockDataFormatException(blockData.getClassName()
+                        + "は引数を受け取るため、Initializableを実装する必要があります。");
+            else {
+                ((Initializable) block).initialize(blockData.getArgs());
+            }
+
         }
         GameRegistry.registerBlock(block, item, blockData.getName(), modId);
         return block;

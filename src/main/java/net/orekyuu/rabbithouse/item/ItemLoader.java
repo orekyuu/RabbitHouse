@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
+import net.orekyuu.rabbithouse.Initializable;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -108,6 +109,16 @@ public class ItemLoader {
         item.setMaxDamage(itemData.getMaxDamage());
         if (itemData.isIs3D()) {
             item.setFull3D();
+        }
+
+        if (!itemData.getArgs().isEmpty()) {
+            if (!(item instanceof Initializable))
+                throw new ItemDataFormatException(itemData.getClassName()
+                        + "は引数を受け取るため、Initializableを実装する必要があります。");
+            else {
+                ((Initializable) item).initialize(itemData.getArgs());
+            }
+
         }
         GameRegistry.registerItem(item, itemData.getName(), modId);
         return item;

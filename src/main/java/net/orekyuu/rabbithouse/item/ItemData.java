@@ -2,6 +2,8 @@ package net.orekyuu.rabbithouse.item;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * アイテムを表すデータ
  */
@@ -13,6 +15,7 @@ class ItemData {
     private int maxStackSize = 64;
     private int maxDamage;
     private boolean is3D;
+    private List<String> args;
 
     @Override
     public String toString() {
@@ -21,10 +24,15 @@ class ItemData {
         sb.append(", name='").append(name).append('\'');
         sb.append(", icon='").append(icon).append('\'');
         sb.append(", class='").append(className).append('\'');
+        sb.append(", args='").append(args.toString()).append('\'');
         sb.append(", maxStackSize=").append(maxStackSize);
         sb.append(", maxDamage=").append(maxDamage);
         sb.append('}');
         return sb.toString();
+    }
+
+    public List<String> getArgs() {
+        return args;
     }
 
     public String getName() {
