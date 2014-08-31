@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+dependencies {
+    repositories {
+        mavenCentral()
+    }
+    compile 'com.google.code.gson:gson:2.2.4'
+}
+compileJava.encoding = 'UTF-8'
+compileTestJava.encoding = 'UTF-8'
+compileJava.options.compilerArgs += ['-source', '1.8', '-target', '1.8']
+compileTestJava.options.compilerArgs += ['-source', '1.8', '-target', '1.8']
+javadoc.options.encoding = 'UTF-8'

@@ -1,0 +1,105 @@
+The assetDir is deprecated!  Use runDir instead! runDir set to eclipse/assets/..The assetDir is deprecated!  Use runDir instead! runDir set to eclipse/assets/..
+
+****************************
+ Powered By MCP:            
+ http://mcp.ocean-labs.de/  
+ Searge, ProfMobius, Fesh0r,
+ R4wk, ZeuX, IngisKahn      
+ MCP Data version : unknown
+****************************
+Creating properties on demand (a.k.a. dynamic properties) has been deprecated and is scheduled to be removed in Gradle 2.0. Please read http://gradle.org/docs/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html for information on the replacement for dynamic properties.
+Deprecated dynamic property: "encoding" on "task ':RabbitHouseTool:compileJava'", value: "UTF-8".
+Deprecated dynamic property "encoding" created in multiple locations.
+:RabbitHouseTool:compileJavaC:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseTool\src\main\java\net\orekyuu\rabbithouse\item\ItemData.java:8: エラー: この文字は、エンコーディングMS932にマップできません
+ * 繧｢繧､繝?繝?繧定｡ｨ縺吶ョ繝ｼ繧ｿ
+        ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseTool\src\main\java\net\orekyuu\rabbithouse\item\ItemData.java:8: エラー: この文字は、エンコーディングMS932にマップできません
+ * 繧｢繧､繝?繝?繧定｡ｨ縺吶ョ繝ｼ繧ｿ
+          ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseTool\src\main\java\net\orekyuu\rabbithouse\item\JsonItems.java:6: エラー: この文字は、エンコーディングMS932にマップできません
+ * Item縺ｮ繝?繝ｼ繧ｿ縺ｮ縺ｾ縺ｨ縺ｾ繧?
+          ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseTool\src\main\java\net\orekyuu\rabbithouse\item\JsonItems.java:6: エラー: この文字は、エンコーディングMS932にマップできません
+ * Item縺ｮ繝?繝ｼ繧ｿ縺ｮ縺ｾ縺ｨ縺ｾ繧?
+                        ^
+
+:RabbitHouseTool:processResources UP-TO-DATE
+:RabbitHouseTool:classes
+:RabbitHouseTool:jar
+:RabbitHouseLibrary:compileApiJava UP-TO-DATE
+:RabbitHouseLibrary:processApiResources UP-TO-DATE
+:RabbitHouseLibrary:apiClasses UP-TO-DATE
+:RabbitHouseLibrary:sourceMainJava UP-TO-DATE
+:RabbitHouseLibrary:compileJava警告: [options] ブートストラップ・クラスパスが-source 1.7と一緒に設定されていません
+注意:C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\build\sources\java\net\orekyuu\rabbithouse\loader\block\BlockLoader.javaは非推奨のAPIを使用またはオーバーライドしています。
+注意:詳細は、-Xlint:deprecationオプションを指定して再コンパイルしてください。
+注意:C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\build\sources\java\net\orekyuu\rabbithouse\loader\block\BlockLoader.javaの操作は、未チェックまたは安全ではありません。
+注意:詳細は、-Xlint:uncheckedオプションを指定して再コンパイルしてください。
+警告1個
+
+:RabbitHouseLibrary:processResources UP-TO-DATE
+:RabbitHouseLibrary:classes
+:RabbitHouseLibrary:deobfJar UP-TO-DATE
+:RabbitHouseLibrary:jar
+:RabbitHouseTool:javadoc
+:RabbitHouseLibrary:javadocC:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\loader\block\BlockLoader.java:9: エラー: net.orekyuu.rabbithouse.blockのBlockDataはpublicではありません。パッケージ外からはアクセスできません
+import net.orekyuu.rabbithouse.block.BlockData;
+                                    ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\loader\block\BlockLoader.java:10: エラー: net.orekyuu.rabbithouse.blockのHarvestLevelはpublicではありません。パッケージ外からはアクセスできません
+import net.orekyuu.rabbithouse.block.HarvestLevel;
+                                    ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\loader\block\BlockLoader.java:11: エラー: net.orekyuu.rabbithouse.blockのJsonBlocksはpublicではありません。パッケージ外からはアクセスできません
+import net.orekyuu.rabbithouse.block.JsonBlocks;
+                                    ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\loader\item\ItemLoader.java:7: エラー: net.orekyuu.rabbithouse.itemのItemDataはpublicではありません。パッケージ外からはアクセスできません
+import net.orekyuu.rabbithouse.item.ItemData;
+                                   ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\loader\item\ItemLoader.java:8: エラー: net.orekyuu.rabbithouse.itemのJsonItemsはpublicではありません。パッケージ外からはアクセスできません
+import net.orekyuu.rabbithouse.item.JsonItems;
+                                   ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\script\Script.java:15: 警告: @throwsの説明がありません
+     * @throws javax.script.ScriptException
+       ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\script\Script.java:16: 警告: @throwsの説明がありません
+     * @throws NoSuchMethodException
+       ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\script\ScriptFactory.java:46: 警告: @throwsの説明がありません
+     * @throws ScriptException
+       ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\script\ScriptFactory.java:48: 警告: java.io.IOExceptionの@throwsがありません
+    public Script create() throws ScriptException, IOException {
+                  ^
+C:\Users\kyuuban\IdeaProjects\RabbitHouse\RabbitHouseLibrary\src\main\java\net\orekyuu\rabbithouse\script\ScriptFactory.java:18: 警告: @throwsの説明がありません
+     * @throws FileNotFoundException
+       ^
+
+警告10個
+:RabbitHouseLibrary:javadocJar
+:RabbitHouseLibrary:extractUserDev UP-TO-DATE
+:RabbitHouseLibrary:extractNatives UP-TO-DATE
+:RabbitHouseLibrary:getAssetsIndex
+:RabbitHouseLibrary:getAssets
+:RabbitHouseLibrary:makeStart SKIPPED
+:RabbitHouseLibrary:compileTestJava警告: [options] ブートストラップ・クラスパスが-source 1.7と一緒に設定されていません
+警告1個
+
+:RabbitHouseLibrary:processTestResources UP-TO-DATE
+:RabbitHouseLibrary:testClasses
+:RabbitHouseLibrary:test
+:RabbitHouseLibrary:genSrgs SKIPPED
+:RabbitHouseLibrary:reobf
+:RabbitHouseLibrary:sourceJar UP-TO-DATE
+:RabbitHouseLibrary:assemble
+:RabbitHouseLibrary:check
+:RabbitHouseLibrary:build
+:RabbitHouseTool:assemble
+:RabbitHouseTool:compileTestJava UP-TO-DATE
+:RabbitHouseTool:processTestResources UP-TO-DATE
+:RabbitHouseTool:testClasses UP-TO-DATE
+:RabbitHouseTool:test UP-TO-DATE
+:RabbitHouseTool:check UP-TO-DATE
+:RabbitHouseTool:build
+
+BUILD SUCCESSFUL
+
+Total time: 20.736 secs
