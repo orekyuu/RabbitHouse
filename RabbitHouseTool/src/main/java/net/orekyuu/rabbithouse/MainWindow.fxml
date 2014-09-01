@@ -3,8 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
 <BorderPane maxHeight="Infinity" maxWidth="Infinity" minHeight="700" minWidth="800" prefHeight="700.0" prefWidth="800.0"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-    <top>
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="net.orekyuu.rabbithouse.MainWindowController">
+<top>
         <MenuBar BorderPane.alignment="CENTER">
             <Menu mnemonicParsing="false" text="ファイル">
                 <MenuItem mnemonicParsing="false" text="プロジェクトを開く"/>
