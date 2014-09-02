@@ -119,6 +119,8 @@ public class BlockEditorController implements Initializable {
             oldvalue.lightLevelProperty().unbind();
             oldvalue.lightOpacityProperty().unbind();
             oldvalue.hardnessProperty().unbind();
+            oldvalue.harvestLevelProperty().unbind();
+            oldvalue.argsProperty().unbind();
             //TODO ArgsとHarvestLevelはあとで(ry
         }
         if (newValue != null) {
@@ -129,6 +131,8 @@ public class BlockEditorController implements Initializable {
             hardness.setValue(newValue.getHardness());
             lightLevel.setValue(newValue.getLightLevel());
             lightOpacity.setValue(newValue.getLightOpacity());
+            args.setText(newValue.getArgs().get());
+            harvestLevel.setText(newValue.getHarvestLevel().get());
             Log.print(this, "SelectItem", newValue.getName());
             //バインドを行う
             newValue.nameProperty().bind(blockName.textProperty());
@@ -139,6 +143,8 @@ public class BlockEditorController implements Initializable {
             newValue.hardnessProperty().bind(hardness.valueProperty());
             newValue.lightLevelProperty().bind(lightLevel.valueProperty());
             newValue.lightOpacityProperty().bind(lightOpacity.valueProperty());
+            newValue.harvestLevelProperty().bind(harvestLevel.textProperty());
+            newValue.argsProperty().bind(args.textProperty());
         } else {
             //nullの場合はテキストをクリアする
             blockName.clear();

@@ -2,14 +2,15 @@ package net.orekyuu.rabbithouse.block;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class BlockData {
     private String name;
     private String resource;
     private String item;
-    private List<HarvestLevel> harvestLevel;
-    private List<String> args;
+    private List<HarvestLevel> harvestLevel = new LinkedList<>();
+    private List<String> args = new LinkedList<>();
     private float resistance;
     private float lightLevel;
     private int lightOpacity;

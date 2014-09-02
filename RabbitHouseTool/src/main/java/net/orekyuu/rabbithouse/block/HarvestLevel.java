@@ -4,6 +4,11 @@ public class HarvestLevel {
     private String key;
     private int value;
 
+    public HarvestLevel(String key, int value) {
+        this.key = key;
+        this.value = value;
+    }
+
     public String getKey() {
         return key;
     }
