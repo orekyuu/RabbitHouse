@@ -8,11 +8,11 @@ public class FileDirs {
     }
 
     public static File createBlockDir(File root) {
-        return new File(root, "/net/orekyuu/rabbithouse/block/");
+        return new File(root, "/net/orekyuu/rabbithouse/loader/block/");
     }
 
     public static File createItemDir(File root) {
-        return new File(root, "/net/orekyuu/rabbithouse/item/");
+        return new File(root, "/net/orekyuu/rabbithouse/loader/item/");
     }
 
     public static File createBlockFile(File root) {
@@ -20,7 +20,7 @@ public class FileDirs {
     }
 
     public static File createItemFile(File root) {
-        return new File(root, "/net/orekyuu/rabbithouse/item/items.json");
+        return new File(root, "/net/orekyuu/rabbithouse/loader/item/Items.json");
     }
 
     public static File createSettingsFile(File root) {
