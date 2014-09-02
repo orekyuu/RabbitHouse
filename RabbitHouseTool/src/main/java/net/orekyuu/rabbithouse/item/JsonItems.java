@@ -1,19 +1,20 @@
 package net.orekyuu.rabbithouse.item;
 
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Itemのデータのまとまり
  */
 public class JsonItems {
-    private ItemData[] items;
+    private List<ItemData> items = new LinkedList<>();
 
     @Override
     public String toString() {
-        return new StringBuilder().append("JsonItems{").append("items=").append(Arrays.toString(items)).append('}').toString();
+        return new StringBuilder().append("JsonItems{").append("items=").append(items).append('}').toString();
     }
 
-    public ItemData[] getItems() {
+    public List<ItemData> getItems() {
         return items;
     }
 }
