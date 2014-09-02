@@ -10,8 +10,8 @@
             <Menu mnemonicParsing="false" text="ファイル">
                 <MenuItem mnemonicParsing="false" text="プロジェクトを開く" onAction="#openProject"/>
                 <MenuItem mnemonicParsing="false" text="プロジェクトの新規作成" onAction="#createProject"/>
-                <MenuItem mnemonicParsing="false" text="保存"/>
-                <MenuItem mnemonicParsing="false" text="上書き保存"/>
+                <MenuItem mnemonicParsing="false" text="別名で保存" onAction="#saveAsProject"/>
+                <MenuItem mnemonicParsing="false" text="上書き保存" onAction="#saveProject"/>
             </Menu>
             <Menu mnemonicParsing="false" text="開発">
                 <MenuItem mnemonicParsing="false" text="エラーチェック"/>
