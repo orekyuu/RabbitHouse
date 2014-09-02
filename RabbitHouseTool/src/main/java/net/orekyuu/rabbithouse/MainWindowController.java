@@ -89,6 +89,8 @@ public class MainWindowController {
     }
 
     private void create(File root) throws IOException {
+        if (root == null)
+            return;
         //Block
         File block = FileDirs.createBlockDir(root);
         block.mkdirs();
@@ -142,6 +144,8 @@ public class MainWindowController {
     }
 
     private void save(File root) {
+        if (root == null)
+            return;
         ApplicationModel app = ApplicationModel.getInstance();
         ProjectModel project = app.getProject();
         if (project == null)
