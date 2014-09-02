@@ -5,11 +5,11 @@
 <BorderPane maxHeight="Infinity" maxWidth="Infinity" minHeight="700" minWidth="800" prefHeight="700.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="net.orekyuu.rabbithouse.MainWindowController">
-<top>
+    <top>
         <MenuBar BorderPane.alignment="CENTER">
             <Menu mnemonicParsing="false" text="ファイル">
-                <MenuItem mnemonicParsing="false" text="プロジェクトを開く"/>
-                <MenuItem mnemonicParsing="false" text="プロジェクトの新規作成"/>
+                <MenuItem mnemonicParsing="false" text="プロジェクトを開く" onAction="#openProject"/>
+                <MenuItem mnemonicParsing="false" text="プロジェクトの新規作成" onAction="#createProject"/>
                 <MenuItem mnemonicParsing="false" text="保存"/>
                 <MenuItem mnemonicParsing="false" text="上書き保存"/>
             </Menu>
