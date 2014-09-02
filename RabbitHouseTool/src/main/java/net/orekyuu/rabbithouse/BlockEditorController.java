@@ -186,4 +186,12 @@ public class BlockEditorController implements Initializable {
         int index = listView.getSelectionModel().getSelectedIndex();
         listView.getItems().remove(index);
     }
+
+    @FXML
+    private void copyBlock() {
+        if (listView.getSelectionModel().isEmpty())
+            return;
+        BlockData blockData = listView.getSelectionModel().getSelectedItem().toBlockData();
+        listView.getItems().add(new BindingBlockData(blockData));
+    }
 }

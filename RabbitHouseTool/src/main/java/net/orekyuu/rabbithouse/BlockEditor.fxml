@@ -62,7 +62,8 @@
                 <Button fx:id="addButton" maxWidth="Infinity" mnemonicParsing="false" text="追加" onAction="#addBlock"/>
                 <Button fx:id="removeButton" maxWidth="Infinity" mnemonicParsing="false" text="削除"
                         onAction="#removeBlock"/>
-                <Button fx:id="copyButton" maxWidth="Infinity" mnemonicParsing="false" text="コピー"/>
+                <Button fx:id="copyButton" maxWidth="Infinity" mnemonicParsing="false" text="コピー"
+                        onAction="#copyBlock"/>
             </children>
         </VBox>
     </right>
