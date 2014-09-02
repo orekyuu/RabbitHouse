@@ -178,4 +178,12 @@ public class BlockEditorController implements Initializable {
         data.setName("Unnamed Block");
         listView.getItems().add(new BindingBlockData(data));
     }
+
+    @FXML
+    private void removeBlock() {
+        if (listView.getSelectionModel().isEmpty())
+            return;
+        int index = listView.getSelectionModel().getSelectedIndex();
+        listView.getItems().remove(index);
+    }
 }

@@ -60,7 +60,8 @@
             <children>
                 <ListView fx:id="listView" maxHeight="Infinity" minHeight="0.0" VBox.vgrow="ALWAYS"/>
                 <Button fx:id="addButton" maxWidth="Infinity" mnemonicParsing="false" text="追加" onAction="#addBlock"/>
-                <Button fx:id="removeButton" maxWidth="Infinity" mnemonicParsing="false" text="削除"/>
+                <Button fx:id="removeButton" maxWidth="Infinity" mnemonicParsing="false" text="削除"
+                        onAction="#removeBlock"/>
                 <Button fx:id="copyButton" maxWidth="Infinity" mnemonicParsing="false" text="コピー"/>
             </children>
         </VBox>
