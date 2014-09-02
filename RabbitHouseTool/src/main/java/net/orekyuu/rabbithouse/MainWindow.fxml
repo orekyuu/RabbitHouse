@@ -21,10 +21,10 @@
     <center>
         <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
             <Tab text="ブロック">
-                <fx:include source="BlockEditor.fxml"/>
+                <fx:include fx:id="blockEditor" source="BlockEditor.fxml"/>
             </Tab>
             <Tab text="アイテム">
-                <fx:include source="ItemEditor.fxml"/>
+                <fx:include fx:id="itemEditor" source="ItemEditor.fxml"/>
             </Tab>
         </TabPane>
     </center>

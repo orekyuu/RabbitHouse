@@ -7,6 +7,7 @@ import com.google.gson.stream.JsonWriter;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -25,6 +26,14 @@ import java.io.IOException;
  * MainWindowのコントローラー
  */
 public class MainWindowController {
+
+
+    public BorderPane blockEditor;
+    public BorderPane itemEditor;
+    @FXML
+    private ItemEditorController itemEditorController;
+    @FXML
+    private BlockEditorController blockEditorController;
 
     //プロジェクトを開く
     @FXML
@@ -85,7 +94,7 @@ public class MainWindowController {
         block.mkdirs();
         File blockFile = FileDirs.createBlockFile(root);
         blockFile.createNewFile();
-        writeObject(blockFile, new JsonItems());
+        writeObject(blockFile, new JsonBlocks());
         //Item
         File item = FileDirs.createItemDir(root);
         item.mkdirs();
@@ -102,6 +111,8 @@ public class MainWindowController {
     }
 
     private void open(File root) {
+        if (root == null)
+            return;
         ApplicationModel app = ApplicationModel.getInstance();
 
         File blockFile = FileDirs.createBlockFile(root);
@@ -123,6 +134,7 @@ public class MainWindowController {
             ProjectModel project = new ProjectModel(root.getName(), root, blocks, items);
             project.setSettings(setting);
             app.setProject(project);
+            blockEditorController.openProject();
             Log.print(this, "OpenProject", project);
         } catch (IOException e) {
             e.printStackTrace();
@@ -134,6 +146,7 @@ public class MainWindowController {
         ProjectModel project = app.getProject();
         if (project == null)
             return;
+        blockEditorController.saveProject();
         try {
             writeObject(FileDirs.createBlockFile(root), project.getBlocks());
             writeObject(FileDirs.createItemFile(root), project.getItems());
@@ -151,6 +164,7 @@ public class MainWindowController {
         writer.setIndent("    ");
         gson.toJson(obj, obj.getClass(), writer);
         writer.close();
+        Log.print(this, "write object", obj);
     }
 
     private <T> T readObject(File file, Class<T> clazz) throws IOException {

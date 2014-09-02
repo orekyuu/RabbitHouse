@@ -57,6 +57,46 @@ public class BlockData {
         return args;
     }
 
+    public void setHarvestLevel(List<HarvestLevel> harvestLevel) {
+        this.harvestLevel = harvestLevel;
+    }
+
+    public void setArgs(List<String> args) {
+        this.args = args;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setResource(String resource) {
+        this.resource = resource;
+    }
+
+    public void setResistance(float resistance) {
+        this.resistance = resistance;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public void setHardness(float hardness) {
+        this.hardness = hardness;
+    }
+
+    public void setLightOpacity(int lightOpacity) {
+        this.lightOpacity = lightOpacity;
+    }
+
+    public void setLightLevel(float lightLevel) {
+        this.lightLevel = lightLevel;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("BlockData{");
