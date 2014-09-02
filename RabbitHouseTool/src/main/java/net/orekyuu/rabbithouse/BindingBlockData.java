@@ -5,6 +5,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import net.orekyuu.rabbithouse.block.BlockData;
 import net.orekyuu.rabbithouse.block.HarvestLevel;
+import net.orekyuu.rabbithouse.setting.BlockSetting;
+import net.orekyuu.rabbithouse.setting.SettingJson;
+import net.orekyuu.rabbithouse.util.Log;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -16,8 +19,8 @@ import java.util.List;
 class BindingBlockData {
     private SimpleStringProperty name;
     private SimpleStringProperty icon;
-    private SimpleStringProperty itemClass;
-    private SimpleStringProperty baseClass;
+    private SimpleIntegerProperty itemClass;
+    private SimpleIntegerProperty baseClass;
     private SimpleFloatProperty registance;
     private SimpleFloatProperty lightLevel;
     private SimpleIntegerProperty lightOpacity;
@@ -28,8 +31,6 @@ class BindingBlockData {
     BindingBlockData(BlockData data) {
         name = new SimpleStringProperty(data.getName());
         icon = new SimpleStringProperty(data.getResource());
-        itemClass = new SimpleStringProperty(data.getItem());
-        baseClass = new SimpleStringProperty(data.getClassName());
         registance = new SimpleFloatProperty(data.getResistance());
         lightLevel = new SimpleFloatProperty(data.getLightLevel());
         lightOpacity = new SimpleIntegerProperty(data.getLightOpacity());
@@ -52,13 +53,43 @@ class BindingBlockData {
             }
             harvestLevel = new SimpleStringProperty(sb.toString());
         }
+        ApplicationModel app = ApplicationModel.getInstance();
+        if (app.getProject() == null) {
+            return;
+        }
+        SettingJson settings = app.getProject().getSettings();
+        BlockSetting blockSetting = settings.getBlockSetting();
+        //BlockClass
+        {
+            int index = 0;
+            if (data.getClassName() != null) {
+                for (String s : blockSetting.getBlockClass()) {
+                    index++;
+                    if (s.equals(data.getClassName())) {
+                        break;
+                    }
+                }
+            }
+            baseClass = new SimpleIntegerProperty(index);
+        }
+        //ItemClass
+        {
+            int index = 0;
+            if (data.getItem() != null) {
+                for (String s : blockSetting.getBlockItemClass()) {
+                    index++;
+                    if (s.equals(data.getItem())) {
+                        break;
+                    }
+                }
+            }
+            itemClass = new SimpleIntegerProperty(index);
+        }
     }
 
     public BlockData toBlockData() {
         BlockData data = new BlockData();
-        data.setClassName(baseClass.get());
         data.setHardness(hardness.get());
-        data.setItem(itemClass.get());
         data.setLightLevel(lightLevel.get());
         data.setLightOpacity(lightOpacity.get());
         data.setName(name.get());
@@ -83,11 +114,26 @@ class BindingBlockData {
             List<HarvestLevel> res = new LinkedList<>();
             for (String line : lines) {
                 String[] split = line.split(":");
-                if (split.length == 2)
+                if (split.length == 2) {
                     res.add(new HarvestLevel(split[0].trim(), Integer.parseInt(split[1].trim())));
+                }
             }
             data.setHarvestLevel(res);
         }
+
+        ApplicationModel app = ApplicationModel.getInstance();
+        if (app.getProject() == null) {
+            data.setClassName(null);
+            data.setItem(null);
+            Log.print(this, "Warning", "ここでtoBlockDataはおかしい");
+            return data;
+        }
+        SettingJson settings = app.getProject().getSettings();
+        BlockSetting blockSetting = settings.getBlockSetting();
+
+        data.setClassName(baseClass.get() == 0 ? null : blockSetting.getBlockClass().get(baseClass.get() - 1));
+        data.setItem(itemClass.get() == 0 ? null : blockSetting.getBlockItemClass().get(itemClass.get() - 1));
+        Log.print(this, "toBlockData", data);
         return data;
     }
 
@@ -107,19 +153,19 @@ class BindingBlockData {
         return icon;
     }
 
-    public String getItemClass() {
+    public int getItemClass() {
         return itemClass.get();
     }
 
-    public SimpleStringProperty itemClassProperty() {
+    public SimpleIntegerProperty itemClassProperty() {
         return itemClass;
     }
 
-    public String getBaseClass() {
+    public int getBaseClass() {
         return baseClass.get();
     }
 
-    public SimpleStringProperty baseClassProperty() {
+    public SimpleIntegerProperty baseClassProperty() {
         return baseClass;
     }
 

@@ -25,8 +25,8 @@ public class BlockEditorController implements Initializable {
     //Editor
     public TextField blockName;
     public TextField iconName;
-    public ComboBox baseClass;
-    public ComboBox itemClass;
+    public ComboBox<String> baseClass;
+    public ComboBox<String> itemClass;
     public Label registanceTest;
     public Slider registance;
     public Label lightLevelText;
@@ -121,7 +121,6 @@ public class BlockEditorController implements Initializable {
             oldvalue.hardnessProperty().unbind();
             oldvalue.harvestLevelProperty().unbind();
             oldvalue.argsProperty().unbind();
-            //TODO ArgsとHarvestLevelはあとで(ry
         }
         if (newValue != null) {
             //値をGUIに反映
@@ -133,12 +132,14 @@ public class BlockEditorController implements Initializable {
             lightOpacity.setValue(newValue.getLightOpacity());
             args.setText(newValue.getArgs().get());
             harvestLevel.setText(newValue.getHarvestLevel().get());
+            baseClass.getSelectionModel().select(newValue.getBaseClass());
+            itemClass.getSelectionModel().select(newValue.getItemClass());
             Log.print(this, "SelectItem", newValue.getName());
             //バインドを行う
             newValue.nameProperty().bind(blockName.textProperty());
             newValue.iconProperty().bind(iconName.textProperty());
-            //newValue.baseClassProperty().bind(baseClass.textProperty());
-            //newValue.itemClassProperty().bind(itemClass.textProperty());
+            newValue.baseClassProperty().bind(baseClass.getSelectionModel().selectedIndexProperty());
+            newValue.itemClassProperty().bind(itemClass.getSelectionModel().selectedIndexProperty());
             newValue.registanceProperty().bind(registance.valueProperty());
             newValue.hardnessProperty().bind(hardness.valueProperty());
             newValue.lightLevelProperty().bind(lightLevel.valueProperty());
@@ -159,11 +160,19 @@ public class BlockEditorController implements Initializable {
         ApplicationModel app = ApplicationModel.getInstance();
         SettingJson settings = app.getProject().getSettings();
         BlockSetting blockSetting = settings.getBlockSetting();
+
+        baseClass.getItems().clear();
+        itemClass.getItems().clear();
+
+        baseClass.getItems().add("指定なし");
+        itemClass.getItems().add("指定なし");
         for (String s : blockSetting.getBlockClass())
             baseClass.getItems().add(s);
         for (String s : blockSetting.getBlockItemClass())
             itemClass.getItems().add(s);
 
+
+        listView.getItems().clear();
         for (BlockData blockData : app.getProject().getBlocks().getBlocks())
             listView.getItems().add(new BindingBlockData(blockData));
     }
