@@ -105,6 +105,17 @@ public class BlockEditorController implements Initializable {
         );
         listView.getSelectionModel().selectedItemProperty().addListener(this::selectItem);
         listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+        listView.setCellFactory(param -> new ListCell<BindingBlockData>() {
+            @Override
+            protected void updateItem(BindingBlockData item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item != null)
+                    setText(item.getName());
+                else
+                    setText("");
+            }
+        });
     }
 
     //ListViewのアイテムがセレクトされた時
