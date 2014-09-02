@@ -4,6 +4,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
@@ -169,5 +170,12 @@ public class BlockEditorController implements Initializable {
         List<BlockData> blocks = app.getProject().getBlocks().getBlocks();
         blocks.clear();
         blocks.addAll(listView.getItems().stream().map(BindingBlockData::toBlockData).collect(Collectors.toList()));
+    }
+
+    @FXML
+    private void addBlock() {
+        BlockData data = new BlockData();
+        data.setName("Unnamed Block");
+        listView.getItems().add(new BindingBlockData(data));
     }
 }
