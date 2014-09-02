@@ -8,6 +8,6 @@ dependencies {
 }
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
-compileJava.options.compilerArgs += ['-source', '1.8', '-target', '1.8']
-compileTestJava.options.compilerArgs += ['-source', '1.8', '-target', '1.8']
+compileJava.options.compilerArgs += ['-source', '1.7', '-target', '1.7']
+compileTestJava.options.compilerArgs += ['-source', '1.7', '-target', '1.7']
 javadoc.options.encoding = 'UTF-8'

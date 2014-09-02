@@ -129,7 +129,7 @@ public class BlockLoader {
 
         block.setBlockName(blockData.getName());
         block.setBlockTextureName(blockData.getResource());
-        if (blockData.getHarvestLevel() != null)
+        if (!blockData.getHarvestLevel().isEmpty())
             for (HarvestLevel harvestLevel : blockData.getHarvestLevel()) {
                 block.setHarvestLevel(harvestLevel.getKey(), harvestLevel.getValue());
             }
@@ -149,7 +149,7 @@ public class BlockLoader {
             throw new BlockDataFormatException(blockData.getName() + "のitem要素の値が不正です。");
         }
 
-        if (blockData.getArgs() != null) {
+        if (!blockData.getArgs().isEmpty()) {
             if (!(block instanceof Initializable))
                 throw new BlockDataFormatException(blockData.getClassName()
                         + "は引数を受け取るため、Initializableを実装する必要があります。");

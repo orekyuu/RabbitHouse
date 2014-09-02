@@ -16,7 +16,7 @@ public class FileDirs {
     }
 
     public static File createBlockFile(File root) {
-        return new File(root, "/net/orekyuu/rabbithouse/block/blocks.json");
+        return new File(root, "/net/orekyuu/rabbithouse/loader/block/Blocks.json");
     }
 
     public static File createItemFile(File root) {

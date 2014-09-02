@@ -1,1 +1,1 @@
-include 'RabbitHouseLibrary', 'RabbitHouseTool'
+include 'RabbitHouseLibrary', 'RabbitHouseTool', 'RabbitHouseDemo'

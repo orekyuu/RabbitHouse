@@ -3,10 +3,12 @@ package net.orekyuu.rabbithouse;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.util.Callback;
 import javafx.util.StringConverter;
 import net.orekyuu.rabbithouse.block.BlockData;
 import net.orekyuu.rabbithouse.setting.BlockSetting;
@@ -16,7 +18,6 @@ import net.orekyuu.rabbithouse.util.Log;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 /**
  * BlockEditorのコントローラー
@@ -103,22 +104,33 @@ public class BlockEditorController implements Initializable {
                     }
                 }
         );
-        listView.getSelectionModel().selectedItemProperty().addListener(this::selectItem);
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<BindingBlockData>() {
+            @Override
+            public void changed(ObservableValue<? extends BindingBlockData> observableValue, BindingBlockData bindingBlockData, BindingBlockData bindingBlockData2) {
+                selectItem(observableValue, bindingBlockData, bindingBlockData2);
+            }
+        });
         listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-        listView.setCellFactory(param -> new ListCell<BindingBlockData>() {
+        listView.setCellFactory(new Callback<ListView<BindingBlockData>, ListCell<BindingBlockData>>() {
             @Override
-            protected void updateItem(BindingBlockData item, boolean empty) {
-                super.updateItem(item, empty);
-                if (item != null)
-                    setText(item.getName());
-                else
-                    setText("");
+            public ListCell<BindingBlockData> call(ListView<BindingBlockData> bindingBlockDataListView) {
+                return new ListCell<BindingBlockData>() {
+                    @Override
+                    protected void updateItem(BindingBlockData item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item != null)
+                            setText(item.getName());
+                        else
+                            setText("");
+                    }
+                };
             }
         });
     }
 
     //ListViewのアイテムがセレクトされた時
+
     private void selectItem(ObservableValue observable, BindingBlockData oldvalue, BindingBlockData newValue) {
         //バインドを解除
         if (oldvalue != null) {
@@ -195,7 +207,9 @@ public class BlockEditorController implements Initializable {
         ApplicationModel app = ApplicationModel.getInstance();
         List<BlockData> blocks = app.getProject().getBlocks().getBlocks();
         blocks.clear();
-        blocks.addAll(listView.getItems().stream().map(BindingBlockData::toBlockData).collect(Collectors.toList()));
+        for (BindingBlockData bindingBlockData : listView.getItems()) {
+            blocks.add(bindingBlockData.toBlockData());
+        }
     }
 
     @FXML
