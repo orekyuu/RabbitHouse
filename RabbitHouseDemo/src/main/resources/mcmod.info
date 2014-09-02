@@ -1,0 +1,16 @@
+[
+{
+  "modid": "demo",
+  "name": "RabbitHouse Demo Mod",
+  "description": "RabbitHouse demo Mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Orekyuu"],
+  "credits": "orekyuu",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,13 @@
+{
+    "blocks": [
+        {
+            "name": "test block",
+            "resource": "test",
+            "harvestLevel": [],
+            "resistance": 4.6263347,
+            "lightLevel": 0.0,
+            "lightOpacity": 0,
+            "hardness": 5.3380785
+        }
+    ]
+}
