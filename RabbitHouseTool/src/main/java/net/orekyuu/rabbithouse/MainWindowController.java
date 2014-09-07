@@ -137,6 +137,7 @@ public class MainWindowController {
             project.setSettings(setting);
             app.setProject(project);
             blockEditorController.openProject();
+            itemEditorController.openProject();
             Log.print(this, "OpenProject", project);
         } catch (IOException e) {
             e.printStackTrace();
@@ -151,6 +152,7 @@ public class MainWindowController {
         if (project == null)
             return;
         blockEditorController.saveProject();
+        itemEditorController.saveProject();
         try {
             writeObject(FileDirs.createBlockFile(root), project.getBlocks());
             writeObject(FileDirs.createItemFile(root), project.getItems());

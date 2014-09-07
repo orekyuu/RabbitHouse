@@ -2,6 +2,7 @@ package net.orekyuu.rabbithouse.item;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class ItemData {
     private int maxStackSize = 64;
     private int maxDamage;
     private boolean is3D;
-    private List<String> args;
+    private List<String> args = new LinkedList<>();
 
     @Override
     public String toString() {
@@ -57,5 +58,33 @@ public class ItemData {
 
     public boolean isIs3D() {
         return is3D;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public void setMaxStackSize(int maxStackSize) {
+        this.maxStackSize = maxStackSize;
+    }
+
+    public void setMaxDamage(int maxDamage) {
+        this.maxDamage = maxDamage;
+    }
+
+    public void setIs3D(boolean is3D) {
+        this.is3D = is3D;
+    }
+
+    public void setArgs(List<String> args) {
+        this.args = args;
     }
 }

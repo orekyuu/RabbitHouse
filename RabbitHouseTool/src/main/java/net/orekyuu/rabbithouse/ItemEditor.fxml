@@ -9,37 +9,40 @@
         <AnchorPane maxHeight="Infinity" maxWidth="Infinity" BorderPane.alignment="CENTER">
             <Label layoutX="14.0" layoutY="14.0" text="アイテムの名前" AnchorPane.leftAnchor="14.0"
                    AnchorPane.topAnchor="14.0"/>
-            <TextField layoutX="14.0" layoutY="31.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
+            <TextField fx:id="itemName" layoutX="14.0" layoutY="31.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
                        AnchorPane.topAnchor="31.0"/>
             <Label layoutX="14.0" layoutY="56.0" text="アイコンのファイル名" AnchorPane.leftAnchor="14.0"
                    AnchorPane.topAnchor="56.0"/>
-            <TextField layoutX="14.0" layoutY="73.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
+            <TextField fx:id="iconName" layoutX="14.0" layoutY="73.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
                        AnchorPane.topAnchor="73.0"/>
             <Label layoutX="14.0" layoutY="100.0" text="ベースクラス名" AnchorPane.leftAnchor="14.0"
                    AnchorPane.topAnchor="100.0"/>
-            <ComboBox layoutX="14.0" layoutY="117.0" promptText="クラス名" AnchorPane.leftAnchor="14.0"
+            <ComboBox fx:id="baseClass" layoutX="14.0" layoutY="117.0" promptText="クラス名" AnchorPane.leftAnchor="14.0"
                       AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="117.0"/>
-            <Label layoutX="14.0" layoutY="142.0" text="スタックサイズ:0" AnchorPane.leftAnchor="14.0"
+            <Label fx:id="stackText" layoutX="14.0" layoutY="142.0" text="スタックサイズ:0" AnchorPane.leftAnchor="14.0"
                    AnchorPane.topAnchor="142.0"/>
-            <Slider layoutX="14.0" layoutY="159.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
+            <Slider fx:id="stack" layoutX="14.0" layoutY="159.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
                     AnchorPane.topAnchor="159.0"/>
-            <Label layoutX="14.0" layoutY="173.0" text="最大ダメージ:0" AnchorPane.leftAnchor="14.0"
+            <Label fx:id="damageText" layoutX="14.0" layoutY="173.0" text="最大ダメージ:0" AnchorPane.leftAnchor="14.0"
                    AnchorPane.topAnchor="173.0"/>
-            <Slider layoutX="14.0" layoutY="190.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
+            <Slider fx:id="damage" layoutX="14.0" layoutY="190.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
                     AnchorPane.topAnchor="190.0"/>
-            <TextArea layoutX="14.0" layoutY="242.0" prefWidth="0.0" AnchorPane.bottomAnchor="14.0"
+            <CheckBox fx:id="is3D" layoutX="14.0" layoutY="204.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="98.0"
+                      text="3D描画有効化" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="204.0"/>
+            <TextArea fx:id="args" layoutX="14.0" layoutY="242.0" prefWidth="0.0" AnchorPane.bottomAnchor="14.0"
                       AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="242.0"/>
             <Label layoutX="14.0" layoutY="225.0" text="引数" AnchorPane.leftAnchor="14.0"
                    AnchorPane.topAnchor="225.0"/>
-            <CheckBox layoutX="14.0" layoutY="204.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="98.0"
-                      text="3D描画有効化" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="204.0"/>
         </AnchorPane>
     </center>
     <right>
         <VBox maxHeight="Infinity" minHeight="0.0" minWidth="-Infinity" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <ListView maxHeight="Infinity" minHeight="0.0" VBox.vgrow="ALWAYS"/>
-            <Button maxWidth="Infinity" mnemonicParsing="false" text="追加"/>
-            <Button maxWidth="Infinity" mnemonicParsing="false" text="削除"/>
+            <ListView fx:id="listView" maxHeight="Infinity" minHeight="0.0" VBox.vgrow="ALWAYS"/>
+            <Button fx:id="addButton" maxWidth="Infinity" mnemonicParsing="false" text="追加" onAction="#addItem"/>
+            <Button fx:id="removeButton" maxWidth="Infinity" mnemonicParsing="false" text="削除"
+                    onAction="#removeItem"/>
+            <Button fx:id="copyButton" maxWidth="Infinity" mnemonicParsing="false" text="コピー"
+                    onAction="#copyItem"/>
         </VBox>
     </right>
 </BorderPane>
