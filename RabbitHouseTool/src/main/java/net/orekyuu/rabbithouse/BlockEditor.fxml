@@ -43,7 +43,7 @@
                 <Slider fx:id="hardness" layoutX="20.0" layoutY="316.0" AnchorPane.leftAnchor="14.0"
                         AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="316.0"/>
                 <TextArea fx:id="harvestLevel" layoutX="15.0" layoutY="347.0" prefHeight="100.0" prefWidth="0.0"
-                          promptText="exanple:1" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
+                          promptText="example:1" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
                           AnchorPane.topAnchor="347.0"/>
                 <TextArea fx:id="args" layoutX="14.0" layoutY="464.0" prefWidth="0.0" promptText="args"
                           AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0"
