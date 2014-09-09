@@ -3,7 +3,6 @@ package net.orekyuu.rabbithouse;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +16,7 @@ import net.orekyuu.rabbithouse.setting.SettingJson;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 /**
  * BlockEditorのコントローラー
@@ -78,14 +78,16 @@ public class BlockEditorController implements Initializable {
                         .then("-fx-border-color: red; -fx-border-width: 2px; -fx-focus-color: red;").otherwise("")
         );
 
+        lightLevel.setMax(1);
         lightLevelText.textProperty().bind(
-                Bindings.convert(Bindings.divide(lightLevel.valueProperty(), 100))
+                Bindings.concat("明るさ: ").concat(lightLevel.valueProperty())
         );
+        lightOpacity.setMax(1);
         lightOpacityText.textProperty().bind(
-                Bindings.convert(Bindings.divide(lightOpacity.valueProperty(), 100))
+                Bindings.concat("光の透過度: ").concat(lightOpacity.valueProperty())
         );
         registanceTest.textProperty().bind(
-                Bindings.convert(registance.valueProperty())
+                Bindings.concat("爆発耐性: ").concat(registance.valueProperty())
         );
         hardnessField.textProperty().bindBidirectional(
                 hardness.valueProperty(), new StringConverter<Number>() {
@@ -103,12 +105,7 @@ public class BlockEditorController implements Initializable {
                     }
                 }
         );
-        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<BindingBlockData>() {
-            @Override
-            public void changed(ObservableValue<? extends BindingBlockData> observableValue, BindingBlockData bindingBlockData, BindingBlockData bindingBlockData2) {
-                selectItem(observableValue, bindingBlockData, bindingBlockData2);
-            }
-        });
+        listView.getSelectionModel().selectedItemProperty().addListener(this::selectItem);
         listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
         listView.setCellFactory(new Callback<ListView<BindingBlockData>, ListCell<BindingBlockData>>() {
@@ -206,9 +203,7 @@ public class BlockEditorController implements Initializable {
         ApplicationModel app = ApplicationModel.getInstance();
         List<BlockData> blocks = app.getProject().getBlocks().getBlocks();
         blocks.clear();
-        for (BindingBlockData bindingBlockData : listView.getItems()) {
-            blocks.add(bindingBlockData.toBlockData());
-        }
+        blocks.addAll(listView.getItems().stream().map(BindingBlockData::toBlockData).collect(Collectors.toList()));
     }
 
     @FXML
