@@ -7,9 +7,9 @@ import java.util.List;
  * ブロックに関する設定
  */
 public class BlockSetting {
-    //@Expose
+
     private List<String> blockClass = new LinkedList<>();
-    //@Expose
+
     private List<String> blockItemClass = new LinkedList<>();
 
     public List<String> getBlockClass() {

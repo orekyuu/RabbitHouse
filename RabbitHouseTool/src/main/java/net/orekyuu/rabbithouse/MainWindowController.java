@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 import net.orekyuu.rabbithouse.block.JsonBlocks;
 import net.orekyuu.rabbithouse.item.JsonItems;
 import net.orekyuu.rabbithouse.setting.SettingJson;
-import net.orekyuu.rabbithouse.util.FileDirs;
-import net.orekyuu.rabbithouse.util.Log;
 
 import java.io.File;
 import java.io.FileReader;

@@ -7,7 +7,6 @@ import net.orekyuu.rabbithouse.item.ItemData;
 import net.orekyuu.rabbithouse.setting.BlockSetting;
 import net.orekyuu.rabbithouse.setting.ItemSetting;
 import net.orekyuu.rabbithouse.setting.SettingJson;
-import net.orekyuu.rabbithouse.util.Log;
 
 import java.util.Arrays;
 

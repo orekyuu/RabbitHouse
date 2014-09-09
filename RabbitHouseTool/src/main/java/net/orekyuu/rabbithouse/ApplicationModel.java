@@ -4,7 +4,7 @@ package net.orekyuu.rabbithouse;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
-public class ApplicationModel {
+class ApplicationModel {
 
     public static ApplicationModel model = new ApplicationModel();
 

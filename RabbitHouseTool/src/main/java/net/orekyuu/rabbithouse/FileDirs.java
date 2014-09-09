@@ -1,8 +1,8 @@
-package net.orekyuu.rabbithouse.util;
+package net.orekyuu.rabbithouse;
 
 import java.io.File;
 
-public class FileDirs {
+class FileDirs {
     private FileDirs() {
         throw new AssertionError("インスタンス化不可");
     }

@@ -13,7 +13,6 @@ import javafx.util.StringConverter;
 import net.orekyuu.rabbithouse.block.BlockData;
 import net.orekyuu.rabbithouse.setting.BlockSetting;
 import net.orekyuu.rabbithouse.setting.SettingJson;
-import net.orekyuu.rabbithouse.util.Log;
 
 import java.net.URL;
 import java.util.List;
@@ -97,7 +96,7 @@ public class BlockEditorController implements Initializable {
 
                     @Override
                     public Number fromString(String string) {
-                        if (string.matches("/^[-]?¥d+(¥.¥d+)?$/")) {
+                        if (string.matches("^(-1|\\d+)$")) {
                             return Double.valueOf(string);
                         }
                         return 0;

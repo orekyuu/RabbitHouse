@@ -1,6 +1,6 @@
-package net.orekyuu.rabbithouse.util;
+package net.orekyuu.rabbithouse;
 
-public class Log {
+class Log {
     public static void print(Object object, String prefix, String info) {
         System.out.println(new StringBuilder().append("[").append(object.getClass().getName()).append("]").append(prefix).append(": ").append(info).toString());
     }

@@ -9,7 +9,7 @@ import java.io.File;
 /**
  * プロジェクトの情報
  */
-public class ProjectModel {
+class ProjectModel {
     private String projectName;
     private File projectDir;
     private JsonBlocks blocks;
@@ -23,9 +23,6 @@ public class ProjectModel {
         this.items = items;
     }
 
-    public String getProjectName() {
-        return projectName;
-    }
 
     public File getProjectDir() {
         return projectDir;
@@ -37,14 +34,6 @@ public class ProjectModel {
 
     public JsonItems getItems() {
         return items;
-    }
-
-    public void setBlocks(JsonBlocks blocks) {
-        this.blocks = blocks;
-    }
-
-    public void setItems(JsonItems items) {
-        this.items = items;
     }
 
     public SettingJson getSettings() {

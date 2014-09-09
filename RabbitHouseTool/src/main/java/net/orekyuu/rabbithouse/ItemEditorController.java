@@ -8,16 +8,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.Callback;
-import net.orekyuu.rabbithouse.block.BlockData;
 import net.orekyuu.rabbithouse.item.ItemData;
 import net.orekyuu.rabbithouse.setting.ItemSetting;
 import net.orekyuu.rabbithouse.setting.SettingJson;
-import net.orekyuu.rabbithouse.util.Log;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.Callable;
 import java.util.stream.Collectors;
 
 /**

@@ -9,7 +9,7 @@ import java.io.Reader;
 /**
  * GUIを描画するためのスクリプト
  */
-public class SimpleScript implements Script {
+class SimpleScript implements Script {
 
     private boolean isAutoReload;
     private InputStream is;
