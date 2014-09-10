@@ -11,3 +11,14 @@ compileTestJava.options.encoding = 'UTF-8'
 compileJava.options.compilerArgs += ['-source', '1.8', '-target', '1.8']
 compileTestJava.options.compilerArgs += ['-source', '1.8', '-target', '1.8']
 javadoc.options.encoding = 'UTF-8'
+
+apply plugin: 'executable-jar'
+mainClass = 'net.orekyuu.rabbithouse.Main'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.nisgits.gradle:gradle-executable-jar-plugin:1.7.0'
+    }
+}
