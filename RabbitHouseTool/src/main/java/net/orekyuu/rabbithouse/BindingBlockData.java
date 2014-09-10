@@ -7,7 +7,6 @@ import net.orekyuu.rabbithouse.block.BlockData;
 import net.orekyuu.rabbithouse.block.HarvestLevel;
 import net.orekyuu.rabbithouse.setting.BlockSetting;
 import net.orekyuu.rabbithouse.setting.SettingJson;
-import net.orekyuu.rabbithouse.util.Log;
 
 import java.util.Arrays;
 import java.util.LinkedList;
