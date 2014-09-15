@@ -2,11 +2,13 @@ package net.orekyuu.rabbithouse.position;
 
 import net.minecraft.entity.Entity;
 
+import java.io.Serializable;
+
 /**
  * 座標を表すクラスです。<br>
  * Positionは不変なオブジェクトでスレッドセーフです。
  */
-public class Position implements Cloneable {
+public class Position implements Serializable {
     private final float x;
     private final float y;
     private final float z;
