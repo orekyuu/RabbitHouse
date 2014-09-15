@@ -80,6 +80,7 @@ public class LocationTest {
     @Test
     public void testEquals() throws Exception {
         World testWorld = new MockWorld();
+        //Commit時に未使用と警告が出る
         Location location3 = new Location(testWorld);
         Position position3 = new Position(1.0F, 2.0F, 3.0F);
         Location location4 = new Location(testWorld);
