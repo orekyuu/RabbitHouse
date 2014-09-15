@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.prefs.Preferences;
 
 /**
  * MainWindowのコントローラー
@@ -33,12 +34,20 @@ public class MainWindowController {
     @FXML
     private BlockEditorController blockEditorController;
 
+    private Preferences prefs;
+    public static final String PATH = "PATH";
+    public static final String DEFAULT_PATH = System.getProperty("user.home");
+
+    public MainWindowController() {
+        prefs = Preferences.userNodeForPackage(this.getClass());
+    }
+
     //プロジェクトを開く
     @FXML
     private void openProject() {
         DirectoryChooser fc = new DirectoryChooser();
         fc.setTitle("プロジェクトを開く");
-        fc.setInitialDirectory(new File(System.getProperty("user.home")));
+        fc.setInitialDirectory(new File(prefs.get(PATH, DEFAULT_PATH)));
         File root = fc.showDialog(Main.getPrimaryStage());
         open(root);
     }
@@ -64,7 +73,11 @@ public class MainWindowController {
         Log.print(this, "saveAsProject", "別名保存");
         DirectoryChooser fc = new DirectoryChooser();
         fc.setTitle("プロジェクトを開く");
-        fc.setInitialDirectory(new File(System.getProperty("user.home")));
+        File dir = new File(prefs.get(PATH, DEFAULT_PATH));
+        if (!dir.exists()) {
+            dir = new File(DEFAULT_PATH);
+        }
+        fc.setInitialDirectory(dir);
         File root = fc.showDialog(Main.getPrimaryStage());
         try {
             create(root);
@@ -137,6 +150,7 @@ public class MainWindowController {
             blockEditorController.openProject();
             itemEditorController.openProject();
             Log.print(this, "OpenProject", project);
+            prefs.put(PATH, project.getProjectDir().getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -158,6 +172,8 @@ public class MainWindowController {
             e.printStackTrace();
         }
         Log.print(this, "SaveProject", project);
+        prefs.put(PATH, project.getProjectDir().getAbsolutePath());
+
     }
 
     private void writeObject(File file, Object obj) throws IOException {
