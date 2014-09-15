@@ -79,13 +79,16 @@ public class BlockEditorController implements Initializable {
         );
 
         lightLevel.setMax(1);
+        lightLevel.setBlockIncrement(0.1);
         lightLevelText.textProperty().bind(
                 Bindings.concat("明るさ: ").concat(lightLevel.valueProperty())
         );
         lightOpacity.setMax(1);
+        lightOpacity.setBlockIncrement(0.1);
         lightOpacityText.textProperty().bind(
                 Bindings.concat("光の透過度: ").concat(lightOpacity.valueProperty())
         );
+        registance.setBlockIncrement(0.1);
         registanceTest.textProperty().bind(
                 Bindings.concat("爆発耐性: ").concat(registance.valueProperty())
         );
