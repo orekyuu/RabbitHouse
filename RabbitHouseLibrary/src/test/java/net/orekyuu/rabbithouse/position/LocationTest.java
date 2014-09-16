@@ -1,10 +1,7 @@
 package net.orekyuu.rabbithouse.position;
 
-import net.minecraft.entity.Entity;
+import mockit.Mocked;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldSettings;
-import net.minecraft.world.WorldType;
-import net.minecraft.world.chunk.IChunkProvider;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertTrue;
@@ -12,33 +9,8 @@ import static org.junit.Assert.assertEquals;
 
 public class LocationTest {
 
-    class MockWorld extends World {
-
-        public MockWorld() {
-            //null, "", null, WorldSettings, null
-            super(null, "test", null, new WorldSettings(0, WorldSettings.GameType.NOT_SET, false, false, WorldType.DEFAULT), null);
-        }
-
-        @Override
-        protected IChunkProvider createChunkProvider() {
-            return null;
-        }
-
-        @Override
-        protected int func_152379_p() {
-            return 0;
-        }
-
-        @Override
-        public Entity getEntityByID(int p_73045_1_) {
-            return null;
-        }
-
-        @Override
-        public int hashCode() {
-            return 0;
-        }
-    }
+    @Mocked
+    private World world;
 
     @Test(expected = NullPointerException.class)
     public void testCreateException() throws Exception {
@@ -47,12 +19,12 @@ public class LocationTest {
 
     @Test
     public void testSetAndGetPosition() throws Exception {
-        Location location = new Location(new MockWorld());
+        Location location = new Location(world);
         Position position = new Position(1.0F, 2.0F, 3.0F);
         location.setPosition(position);
         assertEquals(location.getPosition(), position);
 
-        Location location1 = new Location(new MockWorld());
+        Location location1 = new Location(world);
         Position position1 = new Position(5.0F, 8.0F, 13.0F);
         location1.setPosition(position1);
         assertEquals(location1.getPosition(), position1);
@@ -60,12 +32,11 @@ public class LocationTest {
 
     @Test
     public void testGetDistanceAndGetMultiplyDistance() throws Exception {
-        World testWorld = new MockWorld();
-        Location location1 = new Location(testWorld);
+        Location location1 = new Location(world);
         Position position1 = new Position(1.0F, 2.0F, 3.0F);
         location1.setPosition(position1);
 
-        Location location2 = new Location(testWorld);
+        Location location2 = new Location(world);
         Position position2 = new Position(6.0F, 5.0F, 4.0F);
         location2.setPosition(position2);
 
@@ -79,11 +50,10 @@ public class LocationTest {
 
     @Test
     public void testEquals() throws Exception {
-        World testWorld = new MockWorld();
         //Commit時に未使用と警告が出る
-        Location location3 = new Location(testWorld);
+        Location location3 = new Location(world);
         Position position3 = new Position(1.0F, 2.0F, 3.0F);
-        Location location4 = new Location(testWorld);
+        Location location4 = new Location(world);
         Position position4 = new Position(1.0F, 2.0F, 3.0F);
 
         //交換可能性
