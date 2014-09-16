@@ -15,7 +15,7 @@ public class ScriptFactory {
 
     /**
      * @param path ファイルのパス
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException ファイルが見つからなかった場合スローされます
      */
     public ScriptFactory(String path) throws FileNotFoundException {
         this(new BufferedInputStream(new FileInputStream(path)));
@@ -43,7 +43,7 @@ public class ScriptFactory {
     /**
      * Scriptを作成します。
      * @return Script
-     * @throws ScriptException
+     * @throws ScriptException スクリプトによるエラーが発生した場合スローされます。
      */
     public Script create() throws ScriptException, IOException {
         SimpleScript simpleScript = new SimpleScript(inputStream);
