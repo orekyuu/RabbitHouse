@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
-import net.orekyuu.rabbithouse.item.ItemData;
-import net.orekyuu.rabbithouse.item.JsonItems;
 import net.orekyuu.rabbithouse.loader.Initializable;
 
 import java.io.BufferedReader;
@@ -65,7 +63,7 @@ public class ItemLoader {
         for (ItemData itemData : dataList) {
             if (itemData.getName().equals(name)) {
                 Item item = getItem(itemData);
-                if(!field.getType().isInstance(item)) {
+                if (!field.getType().isInstance(item)) {
                     throw new ItemDataFormatException(item.getClass().getName() + "を" + field.getType().getName() + "にキャストできません。\nアイテム名: " + itemData.getName());
                 }
 
@@ -77,7 +75,7 @@ public class ItemLoader {
                 data = itemData;
             }
         }
-        if(data != null)
+        if (data != null)
             dataList.remove(data);
     }
 
@@ -101,7 +99,7 @@ public class ItemLoader {
         if (itemData.getIcon() == null) {
             throw new ItemDataFormatException(itemData.getName() + "のicon要素を指定してください");
         }
-        if(itemData.getMaxStackSize() < 1) {
+        if (itemData.getMaxStackSize() < 1) {
             throw new ItemDataFormatException(itemData.getName() + "のmaxStackSizeには1以上の値を指定してください");
         }
 
