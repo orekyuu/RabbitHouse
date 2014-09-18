@@ -44,6 +44,7 @@ public class ScriptFactory {
      * Scriptを作成します。
      * @return Script
      * @throws ScriptException スクリプトによるエラーが発生した場合スローされます。
+     * @throws IOException 入出力関係の例外が発生した場合スローされます。
      */
     public Script create() throws ScriptException, IOException {
         SimpleScript simpleScript = new SimpleScript(inputStream);
