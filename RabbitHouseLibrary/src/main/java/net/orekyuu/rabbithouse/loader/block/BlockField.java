@@ -15,5 +15,5 @@ public @interface BlockField {
      * Blockのname要素に指定した文字列を入れる
      * @return Blockの名前
      */
-    String name();
+    String value();
 }

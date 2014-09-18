@@ -12,7 +12,7 @@ public class DemoMod {
     @Mod.Instance
     public static DemoMod instance;
 
-    @BlockField(name = "test block")
+    @BlockField("test block")
     public static Block block;
 
     @Mod.EventHandler

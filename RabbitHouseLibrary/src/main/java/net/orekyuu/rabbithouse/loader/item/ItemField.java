@@ -16,5 +16,5 @@ public @interface ItemField {
      *
      * @return Itemの名前
      */
-    String name();
+    String value();
 }
