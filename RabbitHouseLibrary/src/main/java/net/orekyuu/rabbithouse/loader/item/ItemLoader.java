@@ -43,7 +43,7 @@ public class ItemLoader {
             for (Annotation annotation : field.getDeclaredAnnotations()) {
                 if (annotation instanceof ItemField) {
                     ItemField itemField = (ItemField) annotation;
-                    setValue(itemField.name(), field, dataList);
+                    setValue(itemField.value(), field, dataList);
                 }
             }
         }

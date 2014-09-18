@@ -58,7 +58,7 @@ public class BlockLoader {
             for (Annotation annotation : field.getDeclaredAnnotations()) {
                 if (annotation instanceof BlockField) {
                     BlockField blockField = (BlockField) annotation;
-                    setValue(blockField.name(), field, dataList);
+                    setValue(blockField.value(), field, dataList);
                 }
             }
         }
