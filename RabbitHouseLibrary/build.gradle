@@ -18,10 +18,10 @@ buildscript {
 apply plugin: 'forge'
 apply plugin: 'maven'
 
-version = "1.7.10-1.0.4"
+version = "1.7.10-1.0.5"
 group = "net.orekyuu"
 archivesBaseName = "rabbithouse"
-project.ext.forgeVersion = "1.7.10-10.13.0.1180"
+project.ext.forgeVersion = "1.7.10-10.13.2.1230"
 
 minecraft {
     version = project.ext.forgeVersion
@@ -90,15 +90,6 @@ task createBlock << {
     blocksFile.parentFile.mkdirs()
     if (blocksFile.createNewFile())
         println 'created Blocks.json.'
-}
-
-task readCvs << {
-    forgeDir = project.getGradle().getGradleUserHomeDir().getAbsolutePath().replace('\\', '/') +
-            '/caches/minecraft/net/minecraftforge/forge/'
-    File fields = new File(forgeDir + forgeVersion + '/unpacked/conf/fields.csv')
-    fields.eachLine {
-        println it
-    }
 }
 
 task initRabbitHouse << {

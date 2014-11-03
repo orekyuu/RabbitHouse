@@ -21,7 +21,7 @@ apply plugin: 'maven'
 version = "1.7.10-1.0.3"
 group = "net.orekyuu"
 archivesBaseName = "rabbithousedeni"
-project.ext.forgeVersion = "1.7.10-10.13.0.1180"
+project.ext.forgeVersion = "1.7.10-10.13.2.1230"
 
 minecraft {
     version = project.ext.forgeVersion
